@@ -1,6 +1,20 @@
-# RadioLib ![Build Status](https://github.com/jgromes/RadioLib/workflows/CI/badge.svg) [![PlatformIO Registry](https://badges.registry.platformio.org/packages/jgromes/library/RadioLib.svg)](https://registry.platformio.org/libraries/jgromes/RadioLib) [![Component Registry](https://components.espressif.com/components/jgromes/radiolib/badge.svg)](https://components.espressif.com/components/jgromes/radiolib)
+# RadioLib Fork for ESPHome Compatibility
 
-### _One radio library to rule them all!_
+This repository is a fork of the [RadioLib](https://github.com/jgromes/RadioLib) library.
+
+In the original RadioLib repository, the library causes build issues with ESPHome, as detailed in [this bug report](https://github.com/jgromes/RadioLib/issues/854). These issues have been resolved in this fork, by changing the `library.json` file.
+
+This fork can be used in external components like this:
+
+````
+async def to_code(config):
+  cg.add_library("SPI", None)
+  cg.add_library(
+    name="RadioLib",
+    repository="https://github.com/christianhubmann/esphome-RadioLib.git#7.1.2",
+    version="7.1.2",
+  )
+````
 
 ## Universal wireless communication library for embedded devices
 
